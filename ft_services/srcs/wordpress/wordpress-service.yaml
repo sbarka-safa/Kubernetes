@@ -1,0 +1,16 @@
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: wp-service
+  annotations:
+    metallb.universe.tf/allow-shared-ip: shared
+spec:
+  selector:
+    app: wp
+  type: LoadBalancer
+  ports:
+  - name: http
+    protocol: TCP
+    port: 5050
+    targetPort: 80

@@ -38,22 +38,28 @@ echo $'\e[1;32m'mysql$'\e[0m'
 docker build -t mysql mysql/
 echo $'\e[1;32m'mysql$'\e[0m'
 docker build -t phpmyadmin phpmyadmin/
+echo $'\e[1;32m'wordpress$'\e[0m'
+docker build -t wordpress wordpress/
 
-echo $'\e[1;32m'6- create deployments...$'\e[0m'
+echo $'\e[1;32m'8- create deployments...$'\e[0m'
 echo $'\e[1;32m'nginx$'\e[0m'
 kubectl apply -f nginx/nginx-deployment.yaml
 echo $'\e[1;32m'mysql$'\e[0m'
 kubectl apply -f mysql/mysql-deployment.yaml
 echo $'\e[1;32m'phpmyadmin$'\e[0m'
 kubectl apply -f phpmyadmin/phpmyadmin-deployment.yaml
+echo $'\e[1;32m'wordpress$'\e[0m'
+kubectl apply -f wordpress/wordpress-deployment.yaml
 
-echo $'\e[1;32m'6- create services...$'\e[0m'
+echo $'\e[1;32m'9- create services...$'\e[0m'
 echo $'\e[1;32m'nginx$'\e[0m'
 kubectl apply -f nginx/nginx-service.yaml
 echo $'\e[1;32m'mysql$'\e[0m'
 kubectl apply -f mysql/mysql-service.yaml
 echo $'\e[1;32m'phpmyamdin$'\e[0m'
 kubectl apply -f phpmyadmin/phpmyadmin-service.yaml
+echo $'\e[1;32m'wordpress$'\e[0m'
+kubectl apply -f wordpress/wordpress-service.yaml
 
-echo $'\e[1;32m'9- minikube dashboard...$'\e[0m'
-minikube dashboard &
+echo $'\e[1;32m'10- minikube dashboard...$'\e[0m'
+minikube dashboard 
