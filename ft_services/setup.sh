@@ -33,39 +33,47 @@ kubectl apply -f  metallb.yaml
 echo $'\e[1;32m'6- connect to docker daemon in minikube...$'\e[0m'
 eval $(minikube docker-env)
 
-echo $'\e[1;32m'7- Build images...$'\e[0m'
 echo $'\e[1;32m'nginx$'\e[0m'
+echo $'\e[1;32m'1- Build image$'\e[0m'
 docker build -t nginx  nginx/
-echo $'\e[1;32m'mysql$'\e[0m'
-docker build -t mysql mysql/
-echo $'\e[1;32m'mysql$'\e[0m'
-docker build -t phpmyadmin phpmyadmin/
-echo $'\e[1;32m'wordpress$'\e[0m'
-docker build -t wordpress wordpress/
-echo $'\e[1;32m'grafana$'\e[0m'
-docker build -t grafana grafana/
-
-echo $'\e[1;32m'8- create deployments...$'\e[0m'
-echo $'\e[1;32m'nginx$'\e[0m'
+echo $'\e[1;32m'2- create deployment$'\e[0m'
 kubectl apply -f nginx/nginx-deployment.yaml
-echo $'\e[1;32m'mysql$'\e[0m'
-kubectl apply -f mysql/mysql-deployment.yaml
-echo $'\e[1;32m'phpmyadmin$'\e[0m'
-kubectl apply -f phpmyadmin/phpmyadmin-deployment.yaml
-echo $'\e[1;32m'wordpress$'\e[0m'
-kubectl apply -f wordpress/wordpress-deployment.yaml
-echo $'\e[1;32m'grafana$'\e[0m'
-kubectl apply -f grafana/grafana-deployment.yaml
-
-echo $'\e[1;32m'9- create services...$'\e[0m'
-echo $'\e[1;32m'nginx$'\e[0m'
+echo $'\e[1;32m'3- create service$'\e[0m'
 kubectl apply -f nginx/nginx-service.yaml
+
 echo $'\e[1;32m'mysql$'\e[0m'
+echo $'\e[1;32m'1- Build image$'\e[0m'
+docker build -t mysql mysql/
+echo $'\e[1;32m'2- create deployment$'\e[0m'
+kubectl apply -f phpmyadmin/phpmyadmin-deployment.yaml
+echo $'\e[1;32m'3- create service$'\e[0m'
 kubectl apply -f mysql/mysql-service.yaml
-echo $'\e[1;32m'phpmyamdin$'\e[0m'
+
+
+echo $'\e[1;32m'phpmyadmin$'\e[0m'
+echo $'\e[1;32m'1- Build image$'\e[0m'
+docker build -t phpmyadmin phpmyadmin/
+echo $'\e[1;32m'2- create deployment$'\e[0m'
+kubectl apply -f mysql/mysql-deployment.yaml
+echo $'\e[1;32m'3- create service$'\e[0m'
 kubectl apply -f phpmyadmin/phpmyadmin-service.yaml
+
+
 echo $'\e[1;32m'wordpress$'\e[0m'
+echo $'\e[1;32m'1- Build image$'\e[0m'
+docker build -t wordpress wordpress/
+echo $'\e[1;32m'2- create deployment$'\e[0m'
+kubectl apply -f wordpress/wordpress-deployment.yaml
+echo $'\e[1;32m'3- create service$'\e[0m'
 kubectl apply -f wordpress/wordpress-service.yaml
+
+
 echo $'\e[1;32m'grafana$'\e[0m'
+echo $'\e[1;32m'1- Build image$'\e[0m'
+docker build -t grafana grafana/
+echo $'\e[1;32m'2- create deployment$'\e[0m'
+kubectl apply -f grafana/grafana-deployment.yaml
+echo $'\e[1;32m'3- create service$'\e[0m'
 kubectl apply -f grafana/grafana-service.yaml
+
 
