@@ -19,6 +19,13 @@ spec:
           imagePullPolicy: Never
           ports:
           - containerPort: 8086
+          volumeMounts:
+          - name: influxdb-volume
+            mountPath: /var/lib/influxdb
+      volumes:
+        - name: influxdb-volume
+          persistentVolumeClaim:
+            claimName: influxdb-pvc
 
   
 

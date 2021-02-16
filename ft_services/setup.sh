@@ -29,9 +29,20 @@ echo $'\e[1;32m'5- apply the minikube configuration$'\e[0m'
 echo $'\e[1;32m'execute the configuration file metallb.yaml...$'\e[0m'
 kubectl apply -f  metallb.yaml
 
+
 #connect your Docker CLI to the docker daemon inside the VM 
 echo $'\e[1;32m'6- connect to docker daemon in minikube...$'\e[0m'
 eval $(minikube docker-env)
+
+# echo $'\e[1;32m'create PersistentVolume Object$'\e[0m'
+# kubectl create -f pv.yaml
+
+# echo $'\e[1;32m'create PersistentVolumeClaim Object$'\e[0m'
+# kubectl create -f pvc.yaml
+
+echo $'\e[1;32m'create volumes$'\e[0m'
+kubectl apply -f  influxdb/influxdb-pvc.yaml
+kubectl apply -f  mysql/mysql-pvc.yaml
 
 echo $'\e[1;32m'nginx$'\e[0m'
 echo $'\e[1;32m'1- Build image$'\e[0m'
