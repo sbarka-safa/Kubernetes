@@ -1,9 +1,9 @@
 #set minikube configuration (/goinfre/sbarka/.minikube/config/config.json)
 #change the default configuration.
 echo $'\e[1;32m'1- set configuration of minikube cluster...$'\e[0m';
-minikube config set memory 3072
+minikube config set memory 5072
 minikube config set driver virtualbox
-minikube config set disk-size 5GB
+minikube config set disk-size 20GB
 
 #delete the local kubernetes cluster , delete teh VM , and removes all 
 #associated files.
@@ -15,6 +15,8 @@ echo $'\e[1;32m'3- start minikube...$'\e[0m'
 minikube start 
 
 
+echo $'\e[1;32m'10- minikube dashboard...$'\e[0m'
+minikube dashboard &
 
 #enable the metallb extension for minikube 
 echo $'\e[1;32m'4- enable metallb extension in minikube...$'\e[0m'
@@ -40,6 +42,8 @@ echo $'\e[1;32m'mysql$'\e[0m'
 docker build -t phpmyadmin phpmyadmin/
 echo $'\e[1;32m'wordpress$'\e[0m'
 docker build -t wordpress wordpress/
+echo $'\e[1;32m'grafana$'\e[0m'
+docker build -t grafana grafana/
 
 echo $'\e[1;32m'8- create deployments...$'\e[0m'
 echo $'\e[1;32m'nginx$'\e[0m'
@@ -50,6 +54,8 @@ echo $'\e[1;32m'phpmyadmin$'\e[0m'
 kubectl apply -f phpmyadmin/phpmyadmin-deployment.yaml
 echo $'\e[1;32m'wordpress$'\e[0m'
 kubectl apply -f wordpress/wordpress-deployment.yaml
+echo $'\e[1;32m'grafana$'\e[0m'
+kubectl apply -f grafana/grafana-deployment.yaml
 
 echo $'\e[1;32m'9- create services...$'\e[0m'
 echo $'\e[1;32m'nginx$'\e[0m'
@@ -60,6 +66,6 @@ echo $'\e[1;32m'phpmyamdin$'\e[0m'
 kubectl apply -f phpmyadmin/phpmyadmin-service.yaml
 echo $'\e[1;32m'wordpress$'\e[0m'
 kubectl apply -f wordpress/wordpress-service.yaml
+echo $'\e[1;32m'grafana$'\e[0m'
+kubectl apply -f grafana/grafana-service.yaml
 
-echo $'\e[1;32m'10- minikube dashboard...$'\e[0m'
-minikube dashboard 
