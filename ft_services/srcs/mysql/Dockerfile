@@ -12,6 +12,8 @@ RUN rc-update add mariadb default
 
 COPY srcs/services.sh /
 
+RUN chmod 777 services.sh 
+
 COPY srcs/mariadb-server.cnf /etc/my.cnf.d/
 
 COPY srcs/create_tables.sql /
@@ -20,7 +22,16 @@ COPY srcs/wordpress.sql /
 
 COPY srcs/index.html /www/
 
-RUN apk update
+
+ RUN echo "http://dl-2.alpinelinux.org/alpine/edge/community" >> /etc/apk/repositories
+
+ RUN apk update
+
+ RUN apk add --upgrade telegraf-openrc
+
+ RUN apk add telegraf
+
+ COPY srcs/telegraf.conf /etc/
 
 EXPOSE 3306
 

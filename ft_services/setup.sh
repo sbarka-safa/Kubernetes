@@ -34,12 +34,6 @@ kubectl apply -f  metallb.yaml
 echo $'\e[1;32m'6- connect to docker daemon in minikube...$'\e[0m'
 eval $(minikube docker-env)
 
-# echo $'\e[1;32m'create PersistentVolume Object$'\e[0m'
-# kubectl create -f pv.yaml
-
-# echo $'\e[1;32m'create PersistentVolumeClaim Object$'\e[0m'
-# kubectl create -f pvc.yaml
-
 echo $'\e[1;32m'create volumes$'\e[0m'
 kubectl apply -f  influxdb/influxdb-pvc.yaml
 kubectl apply -f  mysql/mysql-pvc.yaml
@@ -77,7 +71,13 @@ echo $'\e[1;32m'2- create deployment$'\e[0m'
 kubectl apply -f wordpress/wordpress-deployment.yaml
 echo $'\e[1;32m'3- create service$'\e[0m'
 kubectl apply -f wordpress/wordpress-service.yaml
-
+echo $'\e[1;32m'influxdb$'\e[0m'
+echo $'\e[1;32m'1- Build image$'\e[0m'
+docker build -t influxdb influxdb/
+echo $'\e[1;32m'2- create deployment$'\e[0m'
+kubectl apply -f influxdb/influxdb-deployment.yaml
+echo $'\e[1;32m'3- create service$'\e[0m'
+kubectl apply -f influxdb/influxdb-service.yaml
 
 echo $'\e[1;32m'grafana$'\e[0m'
 echo $'\e[1;32m'1- Build image$'\e[0m'
@@ -87,12 +87,10 @@ kubectl apply -f grafana/grafana-deployment.yaml
 echo $'\e[1;32m'3- create service$'\e[0m'
 kubectl apply -f grafana/grafana-service.yaml
 
-echo $'\e[1;32m'influxdb$'\e[0m'
+echo $'\e[1;32m'ftps$'\e[0m'
 echo $'\e[1;32m'1- Build image$'\e[0m'
-docker build -t influxdb influxdb/
+docker build -t ftps ftps/
 echo $'\e[1;32m'2- create deployment$'\e[0m'
-kubectl apply -f influxdb/influxdb-deployment.yaml
+kubectl apply -f ftps/ftps-deployment.yaml
 echo $'\e[1;32m'3- create service$'\e[0m'
-kubectl apply -f influxdb/influxdb-service.yaml
-
-
+kubectl apply -f ftps/ftps-service.yaml

@@ -10,4 +10,6 @@ mysql -u root wordpress < wordpress.sql
 
 mariadb -u root -e "FLUSH PRIVILEGES";
 
+telegraf --config /etc/telegraf.conf
+
 exec top 
