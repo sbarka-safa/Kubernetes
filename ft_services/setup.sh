@@ -22,7 +22,7 @@ minikube dashboard &
 echo $'\e[1;32m'4- enable metallb extension in minikube...$'\e[0m'
 minikube addons enable metallb
 
-cd ~/Desktop/Kubernetes/ft_services/srcs
+cd ./srcs
 
 #execute the configuration file metallb.yaml
 echo $'\e[1;32m'5- apply the minikube configuration$'\e[0m'
@@ -50,7 +50,7 @@ echo $'\e[1;32m'mysql$'\e[0m'
 echo $'\e[1;32m'1- Build image$'\e[0m'
 docker build -t mysql mysql/
 echo $'\e[1;32m'2- create deployment$'\e[0m'
-kubectl apply -f phpmyadmin/phpmyadmin-deployment.yaml
+kubectl apply -f mysql/mysql-deployment.yaml
 echo $'\e[1;32m'3- create service$'\e[0m'
 kubectl apply -f mysql/mysql-service.yaml
 
@@ -59,7 +59,7 @@ echo $'\e[1;32m'phpmyadmin$'\e[0m'
 echo $'\e[1;32m'1- Build image$'\e[0m'
 docker build -t phpmyadmin phpmyadmin/
 echo $'\e[1;32m'2- create deployment$'\e[0m'
-kubectl apply -f mysql/mysql-deployment.yaml
+kubectl apply -f phpmyadmin/phpmyadmin-deployment.yaml
 echo $'\e[1;32m'3- create service$'\e[0m'
 kubectl apply -f phpmyadmin/phpmyadmin-service.yaml
 
@@ -71,6 +71,7 @@ echo $'\e[1;32m'2- create deployment$'\e[0m'
 kubectl apply -f wordpress/wordpress-deployment.yaml
 echo $'\e[1;32m'3- create service$'\e[0m'
 kubectl apply -f wordpress/wordpress-service.yaml
+
 echo $'\e[1;32m'influxdb$'\e[0m'
 echo $'\e[1;32m'1- Build image$'\e[0m'
 docker build -t influxdb influxdb/

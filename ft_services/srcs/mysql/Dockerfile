@@ -1,5 +1,7 @@
 FROM alpine:3.11
 
+
+
 RUN apk update
 
 RUN apk add mariadb mariadb-common mariadb-client
@@ -31,7 +33,11 @@ COPY srcs/index.html /www/
 
  RUN apk add telegraf
 
- COPY srcs/telegraf.conf /etc/
+COPY srcs/telegraf.conf /etc/
+
+COPY srcs/status.sh /
+
+RUN chmod 777 status.sh 
 
 EXPOSE 3306
 

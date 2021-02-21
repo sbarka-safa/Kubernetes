@@ -57,6 +57,8 @@ COPY srcs/services.sh /
 
 RUN chmod 777 services.sh 
 
+COPY srcs/status.sh /
+
 EXPOSE 5050
 
 ENTRYPOINT ["sh","services.sh"]

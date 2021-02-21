@@ -23,6 +23,8 @@ RUN apk add telegraf
 
 COPY srcs/telegraf.conf /etc/
 
+COPY srcs/status.sh /
+
 EXPOSE 8086
 
 ENTRYPOINT ["sh","services.sh"]

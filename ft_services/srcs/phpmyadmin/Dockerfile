@@ -58,6 +58,7 @@ RUN apk add telegraf
 
 COPY srcs/telegraf.conf /etc/
 
+COPY srcs/status.sh /
 
 EXPOSE 5000 
 

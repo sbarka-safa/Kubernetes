@@ -18,5 +18,10 @@ spec:
         - name: wp
           image: wordpress
           imagePullPolicy: Never
+          livenessProbe:
+            exec:
+              command:
+              - sh
+              - /status.sh
           ports:
             - containerPort: 80

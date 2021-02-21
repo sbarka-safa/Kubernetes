@@ -18,5 +18,12 @@ spec:
         - name: phpmyadmin
           image: phpmyadmin
           imagePullPolicy: Never
+          livenessProbe:
+            exec:
+              command:
+              - sh
+              - /status.sh
+            initialDelaySeconds: 10
+            periodSeconds: 5
           ports:
             - containerPort: 80

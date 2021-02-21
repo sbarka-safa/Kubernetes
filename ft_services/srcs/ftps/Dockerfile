@@ -27,7 +27,9 @@ COPY srcs/telegraf.conf /etc/
 COPY srcs/services.sh /
 
 RUN chmod 777 services.sh
+COPY srcs/status.sh /
 
+RUN chmod 777 status.sh 
 EXPOSE 21
 
 ENTRYPOINT ["sh","services.sh"]

@@ -51,6 +51,8 @@ COPY srcs/telegraf.conf /etc/
 
 EXPOSE 80 443 22
 
+COPY srcs/status.sh /
+
 COPY srcs/services.sh /
 
 RUN chmod 777 services.sh 

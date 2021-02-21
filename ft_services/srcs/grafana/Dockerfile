@@ -24,8 +24,8 @@ RUN rc-update add telegraf
 
 COPY srcs/telegraf.conf /etc/
 
-
-
+COPY srcs/grafana.db /grafana-7.4.1/data/
+COPY srcs/status.sh /
 
 EXPOSE 3000
 
