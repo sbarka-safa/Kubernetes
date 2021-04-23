@@ -1,21 +1,21 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: wp-deployment
+  name: wordpress
   labels:
-    app: wp
+    app: wordpress
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: wp
+      app: wordpress
   template:
     metadata:
       labels:
-        app: wp
+        app: wordpress
     spec:
       containers:
-        - name: wp
+        - name: wordpress
           image: wordpress
           imagePullPolicy: Never
           livenessProbe:

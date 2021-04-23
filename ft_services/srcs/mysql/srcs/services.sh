@@ -12,4 +12,5 @@ mariadb -u root -e "FLUSH PRIVILEGES";
 
 telegraf --config /etc/telegraf.conf
 
+
 exec top 

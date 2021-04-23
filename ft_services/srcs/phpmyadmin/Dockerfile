@@ -14,8 +14,6 @@ RUN chown -R www:www /www
 
 COPY srcs/nginx.conf /etc/nginx/
 
-COPY srcs/index.html /www/
-
 RUN apk add openrc --no-cache
 
 RUN openrc default
@@ -41,6 +39,10 @@ RUN chown -R www:www /www/phpmyadmin
 RUN mv /www/phpmyadmin/config.sample.inc.php  /www/phpmyadmin/config.inc.php
 
 COPY srcs/config.inc.php /www/phpmyadmin/
+
+#RUN cp /www/phpmyadmin/* /www/
+
+#RUN rm -rf /www/phpmyadmin
 
 RUN apk add php7-fpm php7 php7-session php7-gd php7-opcache   php7-zlib php7-mcrypt php7-soap php7-openssl php7-gmp php7-pdo_odbc php7-json php7-dom php7-pdo php7-zip php7-mysqli php7-sqlite3 php7-apcu php7-pdo_pgsql php7-bcmath php7-gd php7-odbc php7-pdo_mysql php7-pdo_sqlite php7-gettext php7-xmlreader php7-xmlrpc php7-bz2 php7-iconv php7-pdo_dblib php7-curl php7-ctype
 

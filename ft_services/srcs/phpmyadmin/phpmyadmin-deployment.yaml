@@ -1,18 +1,18 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: php-deployment
+  name: phpmyadmin
   labels:
     app: php
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: php
+      app: phpmyadmin
   template:
     metadata:
       labels:
-        app: php
+        app: phpmyadmin
     spec:
       containers:
         - name: phpmyadmin
