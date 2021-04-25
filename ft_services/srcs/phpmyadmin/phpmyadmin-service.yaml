@@ -2,7 +2,7 @@
 kind: Service
 apiVersion: v1
 metadata:
-  name: php-service
+  name: phpmyadmin-service
   annotations:
     metallb.universe.tf/allow-shared-ip: shared
 spec:
