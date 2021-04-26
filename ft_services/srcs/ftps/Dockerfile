@@ -10,8 +10,9 @@ RUN openssl req -x509 -nodes -days 365 -newkey rsa:1024 -keyout /etc/ssl/private
 
 COPY srcs/vsftpd.conf /etc/vsftpd/
 
-RUN echo "root:root" | chpasswd
-
+#RUN echo "root:root" | chpasswd
+RUN adduser sbarka -D
+RUN echo "sbarka:123456" | chpasswd
 RUN apk add openrc --no-cache
 
 RUN openrc default

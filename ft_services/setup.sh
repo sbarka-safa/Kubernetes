@@ -72,26 +72,26 @@ kubectl apply -f wordpress/wordpress-deployment.yaml
 echo $'\e[1;32m'3- create service$'\e[0m'
 kubectl apply -f wordpress/wordpress-service.yaml
 
-# echo $'\e[1;32m'influxdb$'\e[0m'
-# echo $'\e[1;32m'1- Build image$'\e[0m'
-# docker build -t influxdb influxdb/
-# echo $'\e[1;32m'2- create deployment$'\e[0m'
-# kubectl apply -f influxdb/influxdb-deployment.yaml
-# echo $'\e[1;32m'3- create service$'\e[0m'
-# kubectl apply -f influxdb/influxdb-service.yaml
+echo $'\e[1;32m'influxdb$'\e[0m'
+echo $'\e[1;32m'1- Build image$'\e[0m'
+docker build -t influxdb influxdb/
+echo $'\e[1;32m'2- create deployment$'\e[0m'
+kubectl apply -f influxdb/influxdb-deployment.yaml
+echo $'\e[1;32m'3- create service$'\e[0m'
+kubectl apply -f influxdb/influxdb-service.yaml
 
-# echo $'\e[1;32m'grafana$'\e[0m'
-# echo $'\e[1;32m'1- Build image$'\e[0m'
-# docker build -t grafana grafana/
-# echo $'\e[1;32m'2- create deployment$'\e[0m'
-# kubectl apply -f grafana/grafana-deployment.yaml
-# echo $'\e[1;32m'3- create service$'\e[0m'
-# kubectl apply -f grafana/grafana-service.yaml
+echo $'\e[1;32m'grafana$'\e[0m'
+echo $'\e[1;32m'1- Build image$'\e[0m'
+docker build -t grafana grafana/
+echo $'\e[1;32m'2- create deployment$'\e[0m'
+kubectl apply -f grafana/grafana-deployment.yaml
+echo $'\e[1;32m'3- create service$'\e[0m'
+kubectl apply -f grafana/grafana-service.yaml
 
-# echo $'\e[1;32m'ftps$'\e[0m'
-# echo $'\e[1;32m'1- Build image$'\e[0m'
-# docker build -t ftps ftps/
-# echo $'\e[1;32m'2- create deployment$'\e[0m'
-# kubectl apply -f ftps/ftps-deployment.yaml
-# echo $'\e[1;32m'3- create service$'\e[0m'
-# kubectl apply -f ftps/ftps-service.yaml
+echo $'\e[1;32m'ftps$'\e[0m'
+echo $'\e[1;32m'1- Build image$'\e[0m'
+docker build -t ftps ftps/
+echo $'\e[1;32m'2- create deployment$'\e[0m'
+kubectl apply -f ftps/ftps-deployment.yaml
+echo $'\e[1;32m'3- create service$'\e[0m'
+kubectl apply -f ftps/ftps-service.yaml

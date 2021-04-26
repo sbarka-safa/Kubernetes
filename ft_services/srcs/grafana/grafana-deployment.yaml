@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: grafana
+  name: grafana-deployment
   labels:
     app: grafana
 spec:

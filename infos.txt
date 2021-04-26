@@ -1,0 +1,81 @@
+what is minikube 
+----------------
+
+minikube. Like kind , minikube is a tool that lets you run Kubernetes locally.
+minikube runs a single-node Kubernetes cluster on your personal computer 
+(including Windows, macOS and Linux PCs) so that you can try out Kubernetes, or for daily development 
+work.
+
+what is minikube dashboard
+-------------------------
+The Dashboard is a web-based Kubernetes user interface. You can use it to: 
+deploy containerized applications to a Kubernetes cluster. ... get an overview of 
+applications running on your cluster. creating or modifying individual Kubernetes resources 
+(such as Deployments, Jobs, DaemonSets, etc)
+
+whhat is a load balancing
+------------------------
+
+Load balancing refers to efficiently distributing incoming network traffic across a group 
+of backend servers, also known as a server farm or server pool.
+
+Modern high‑traffic websites must serve hundreds of thousands, if not millions, 
+of concurrent requests from users or clients and return the correct text, images, video, 
+or application data, all in a fast and reliable manner. To cost‑effectively scale to meet 
+these high volumes, modern computing best practice generally requires adding more servers.
+
+A load balancer acts as the “traffic cop” sitting in front of your servers and routing client 
+requests across all servers capable of fulfilling those requests in a manner that maximizes speed 
+and capacity utilization and ensures that no one server is overworked, which could degrade performance. 
+If a single server goes down, the load balancer redirects traffic to the remaining online servers.
+ When a new server is added to the server group, the load balancer automatically starts to send 
+ requests to it.
+
+In this manner, a load balancer performs the following functions:
+
+-Distributes client requests or network load efficiently across multiple servers
+-Ensures high availability and reliability by sending requests only to servers that are online
+-Provides the flexibility to add or subtract servers as demand dictates
+
+what is metallb
+---------------
+MetalLB is a load-balancer implementation for bare metal Kubernetes clusters,
+ using standard routing protocols. MetalLB is a young project. You should treat it as a beta system. 
+The project maturity page explains what that implies.
+
+volume persistents
+------------------
+La gestion du stockage est un problème distinct de la gestion des instances de calcul. 
+Le sous-système PersistentVolume fournit une API pour les utilisateurs et les administrateurs 
+qui abstrait les détails de la façon dont le stockage est fourni et de la façon dont il est utilisé.
+Pour ce faire, nous introduisons deux nouvelles ressources API: PersistentVolume et 
+PersistentVolumeClaim.
+
+Un PersistentVolume (PV) est un élément de stockage dans le cluster qui a été provisionné 
+par un administrateur ou provisionné dynamiquement à l'aide de Storage Classes. 
+Il s'agit d'une ressource dans le cluster, tout comme un nœud est une ressource de cluster. 
+Les PV sont des plugins de volume comme Volumes, mais ont un cycle de vie indépendant de tout 
+pod individuel qui utilise le PV.
+
+Un PersistentVolumeClaim (PVC) est une demande de stockage par un utilisateur. 
+Il est similaire à un Pod. Les pods consomment des ressources de noeud et les PVC consomment des 
+ressources PV. Les pods peuvent demander des niveaux spécifiques de ressources (CPU et mémoire). 
+Les PVC peuvent demander une taille et des modes d'accès spécifiques (par exemple, ils peuvent 
+être montés une fois en lecture/écriture ou plusieurs fois en lecture seule).
+
+Alors que les PersistentVolumeClaims permettent à un utilisateur de consommer des ressources de 
+stockage abstraites, il est courant que les utilisateurs aient besoin de PersistentVolumes avec des
+ propriétés et des performances variables pour différents problèmes. Les administrateurs de cluster 
+ doivent être en mesure d'offrir une variété de PersistentVolumes qui diffèrent de bien des façons plus
+ a taille et les modes d'accès, sans exposer les utilisateurs aux détails de la façon dont ces volumes
+  sont mis en œuvre. Pour ces besoins, il existe la ressource StorageClass.
+
+  In short, Kubernetes separates the basic unit of storage into two concepts. PV is a piece of storage which supposed to be pre-allocated by an admin. 
+  And PVC is a request for a piece of storage by a user.
+
+  It said that Kubernetes expects the admin to allocate various sized PVs beforehand. 
+  When the user creates PVC to request a piece of storage, Kubernetes will try to match that PVC 
+  with a pre-allocated PV. If a match can be found, the PVC will be bound to the PV, and the user 
+  will start to use that pre-allocated piece of storage.
+
+  ssh-keygen -f filename.
