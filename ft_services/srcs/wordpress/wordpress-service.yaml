@@ -2,7 +2,7 @@
 kind: Service
 apiVersion: v1
 metadata:
-  name: wp-service
+  name: wordpress-service
   annotations:
     metallb.universe.tf/allow-shared-ip: shared
 spec:
