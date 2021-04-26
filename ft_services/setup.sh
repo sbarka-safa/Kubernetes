@@ -39,59 +39,45 @@ kubectl apply -f  influxdb/influxdb-pvc.yaml
 kubectl apply -f  mysql/mysql-pvc.yaml
 
 echo $'\e[1;32m'nginx$'\e[0m'
-echo $'\e[1;32m'1- Build image$'\e[0m'
+
 docker build -t nginx  nginx/
-echo $'\e[1;32m'2- create deployment$'\e[0m'
 kubectl apply -f nginx/nginx-deployment.yaml
-echo $'\e[1;32m'3- create service$'\e[0m'
 kubectl apply -f nginx/nginx-service.yaml
 
 echo $'\e[1;32m'mysql$'\e[0m'
-echo $'\e[1;32m'1- Build image$'\e[0m'
+
 docker build -t mysql mysql/
-echo $'\e[1;32m'2- create deployment$'\e[0m'
 kubectl apply -f mysql/mysql-deployment.yaml
-echo $'\e[1;32m'3- create service$'\e[0m'
 kubectl apply -f mysql/mysql-service.yaml
 
 
 echo $'\e[1;32m'phpmyadmin$'\e[0m'
-echo $'\e[1;32m'1- Build image$'\e[0m'
+
 docker build -t phpmyadmin phpmyadmin/
-echo $'\e[1;32m'2- create deployment$'\e[0m'
 kubectl apply -f phpmyadmin/phpmyadmin-deployment.yaml
-echo $'\e[1;32m'3- create service$'\e[0m'
 kubectl apply -f phpmyadmin/phpmyadmin-service.yaml
 
 
 echo $'\e[1;32m'wordpress$'\e[0m'
-echo $'\e[1;32m'1- Build image$'\e[0m'
+
 docker build -t wordpress wordpress/
-echo $'\e[1;32m'2- create deployment$'\e[0m'
 kubectl apply -f wordpress/wordpress-deployment.yaml
-echo $'\e[1;32m'3- create service$'\e[0m'
 kubectl apply -f wordpress/wordpress-service.yaml
 
 echo $'\e[1;32m'influxdb$'\e[0m'
-echo $'\e[1;32m'1- Build image$'\e[0m'
+
 docker build -t influxdb influxdb/
-echo $'\e[1;32m'2- create deployment$'\e[0m'
 kubectl apply -f influxdb/influxdb-deployment.yaml
-echo $'\e[1;32m'3- create service$'\e[0m'
 kubectl apply -f influxdb/influxdb-service.yaml
 
 echo $'\e[1;32m'grafana$'\e[0m'
-echo $'\e[1;32m'1- Build image$'\e[0m'
+
 docker build -t grafana grafana/
-echo $'\e[1;32m'2- create deployment$'\e[0m'
 kubectl apply -f grafana/grafana-deployment.yaml
-echo $'\e[1;32m'3- create service$'\e[0m'
 kubectl apply -f grafana/grafana-service.yaml
 
 echo $'\e[1;32m'ftps$'\e[0m'
-echo $'\e[1;32m'1- Build image$'\e[0m'
+
 docker build -t ftps ftps/
-echo $'\e[1;32m'2- create deployment$'\e[0m'
 kubectl apply -f ftps/ftps-deployment.yaml
-echo $'\e[1;32m'3- create service$'\e[0m'
 kubectl apply -f ftps/ftps-service.yaml
